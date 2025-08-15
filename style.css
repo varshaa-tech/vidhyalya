@@ -149,7 +149,65 @@ body {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
 }
+/* --- Dropdown essentials --- */
+.site-nav { 
+  background:#7b1c1c;            /* maroon */
+  position:relative; 
+  z-index:1000;                   /* keep above slider */
+  overflow:visible;               /* don't clip dropdowns */
+  font-family:system-ui, Arial;
+}
+.site-nav .menu{
+  margin:0; padding:0;
+  list-style:none;
+  display:flex; flex-wrap:wrap;
+}
+.site-nav .menu>li{ position:relative; }
+.site-nav .menu>li>a{
+  display:block; padding:12px 16px;
+  color:#fff; text-decoration:none; 
+  font-weight:600; letter-spacing:.2px;
+}
+.site-nav .menu>li>a:hover{ background:#9a2a2a; }
 
+/* first level dropdown */
+.dropdown-menu{
+  position:absolute; left:0; top:100%;
+  min-width:260px;
+  background:#7b1c1c;
+  border-top:2px solid #d5a73a;  /* gold accent like screenshot */
+  list-style:none; margin:0; padding:0;
+  display:none;                   /* hidden by default */
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+.dropdown-menu>li>a{
+  display:block; padding:12px 14px;
+  color:#fff; text-decoration:none;
+  white-space:nowrap;
+}
+.dropdown-menu>li>a:hover{ background:#9a2a2a; }
+
+/* second level (flyout) */
+.dropdown-sub{ position:relative; }
+.dropdown-submenu{
+  position:absolute; top:0; left:100%;
+  min-width:240px;
+  background:#7b1c1c;
+  list-style:none; margin:0; padding:0;
+  display:none; box-shadow:0 10px 20px rgba(0,0,0,.25);
+  border-left:2px solid #d5a73a;
+}
+
+/* show on hover (desktop) */
+.dropdown:hover>.dropdown-menu{ display:block; }
+.dropdown-sub:hover>.dropdown-submenu{ display:block; }
+
+/* tiny style helpers */
+.caret{ margin-left:6px; font-weight:700; }
+.caret-right{ float:right; }
+
+/* make sure later sections don't overlap the nav */
+.slider{ position:relative; z-index:1; }
 /* Enhanced Main Header */
 .main-header {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
